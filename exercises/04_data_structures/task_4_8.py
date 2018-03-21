@@ -19,3 +19,10 @@
 '''
 
 IP = '192.168.3.1'
+IP = list(map(int, IP.split('.')))
+
+for ip in IP:
+    print('{:<10}'. format(ip), end='')
+print()
+for ip in IP:
+    print('{:<10}'.format(bin(ip)[2:].zfill(8)), end='')
