@@ -47,3 +47,10 @@ london_co = {
         'routing': True
     }
 }
+
+device = input('Input name of device: ')
+
+print(london_co.get(device))
+
+
+

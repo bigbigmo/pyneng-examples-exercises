@@ -19,3 +19,25 @@ Mask:
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+import re
+full_network = input('Please input your network in standard format: ')
+full_network = full_network.replace('/', '.')
+full_network = list(map(int, full_network.split('.')))
+
+network = full_network[:4]
+mask = full_network[4:]
+
+print('Network:')
+for i in network:
+    print('{:<10}'. format(i), end='')
+print()
+for i in network:
+    print('{:<10}'.format(bin(i)[2:].zfill(8)), end='')
+
+print()
+print('Mask:')
+for i in mask:
+    print('{:<10}'. format(i), end='')
+print()
+for i in mask:
+    print('{:<10}'.format(bin(i)[2:].zfill(8)), end='')
