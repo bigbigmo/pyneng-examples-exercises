@@ -44,3 +44,13 @@ london_co = {
         'routing': True
     }
 }
+
+
+device = input('Enter device name: ')
+
+keys = (london_co.get(device)).keys()
+keys = ", ".join(keys)
+
+parameter = input("Enter parameter name ({}): ".format(keys))
+
+print(london_co[device][parameter])
