@@ -20,3 +20,4 @@ word_list = [
 
 word = input('Input number or word which last index you find: ')
 
+print(num_list[::-1].index(word))
