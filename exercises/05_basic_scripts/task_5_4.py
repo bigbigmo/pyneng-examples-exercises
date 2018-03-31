@@ -26,3 +26,4 @@ last_index_word = len(word_list) - 1 - word_list[::-1].index(word)
 print(last_index_number)
 print(last_index_word)
 
+print(num_list[::-1].index(word))
