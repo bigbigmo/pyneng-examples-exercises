@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- codg: utf-8 -*-
 '''
 Задание 5.2c
 
@@ -48,3 +48,15 @@ london_co = {
         'routing': True
     }
 }
+
+device = input('Enter device name: ')
+
+keys = (london_co.get(device)).keys()
+keys = ", ".join(keys)
+
+parameter = input("Enter parameter name ({}): ".format(keys))
+
+if keys.find(str(parameter)) >= 0:
+    print(london_co[device][parameter])
+else:
+    print("Такой параметр не найден")

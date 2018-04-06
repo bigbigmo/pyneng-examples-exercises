@@ -11,6 +11,14 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
 
-mac = ['aabb:cc80:7000', 'aabb:dd80:7340', 'aabb:ee80:7000', 'aabb:ff80:7000']
+mac_table = ['aabb:cc80:7000', 'aabb:dd80:7340', 'aabb:ee80:7000', 'aabb:ff80:7000']
 
 mac_cisco = []
+
+for mac in mac_table:
+    mac = mac.split(':')
+    mac = ".".join(mac)
+    mac_cisco.append(mac)
+
+
+print(mac_cisco)

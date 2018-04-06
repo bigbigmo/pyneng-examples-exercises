@@ -19,3 +19,20 @@ D: 224-239
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+ip_addr = input('Please enter your ip address in x.x.x.x format: ')
+first_octet = ip_addr.split('.')
+
+if int(first_octet[0]) in range (1,127):
+    print('This is unicast ip. Class A')
+elif int(first_octet[0]) in range (128,191):
+    print('This is unicast ip. Class B')
+elif int(first_octet[0]) in range (192,223):
+    print('This is unicast ip. Class C')
+elif int(first_octet[0]) in range (224,239):
+    print('This is multicast ip')
+elif ip_addr == '255.255.255.255':
+    print('This is local broadcast ip')
+elif int(first_octet[0]) == 0:
+    print('Ip address in unassigned')
+else:
+    print('Ip in unused')

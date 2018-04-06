@@ -17,3 +17,13 @@ num_list = [10, 2, 30, 100, 10, 50, 11, 30, 15, 7]
 word_list = [
     'python', 'ruby', 'perl', 'ruby', 'perl', 'python', 'ruby', 'perl'
 ]
+number = input('Input number which last index you find: ')
+word = input('Input word which last index you find: ')
+
+last_index_number = len(num_list) - 1 - num_list[::-1].index(int(number))
+last_index_word = len(word_list) - 1 - word_list[::-1].index(word)
+
+print(last_index_number)
+print(last_index_word)
+
+print(num_list[::-1].index(word))
