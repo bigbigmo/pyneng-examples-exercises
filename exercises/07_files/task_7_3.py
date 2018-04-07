@@ -18,3 +18,14 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+with open ('CAM_table.txt', 'r') as f:
+    for line in f:
+        line = line.split()
+        if line == []:
+            continue
+        if line[0].isdigit():
+            line.pop(2)
+            line = "   ".join(line)
+            print(line)
+        else:
+            continue

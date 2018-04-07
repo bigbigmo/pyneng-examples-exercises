@@ -12,3 +12,12 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+file = input('Write name or path for file: ')
+
+with open(file, 'r') as f:
+    for line in f:
+        if line.startswith('!'):
+            continue
+        else:
+            print(line.strip('\n'))

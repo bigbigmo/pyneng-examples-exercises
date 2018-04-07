@@ -11,3 +11,16 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+vlan_number = input('Input vlan number: ')
+
+with open ('CAM_table.txt', 'r') as f:
+    for line in f:
+        line = line.split()
+        if line == []:
+            continue
+        if line[0].isdigit() and line[0] == vlan_number:
+            line.pop(2)
+            line = "   ".join(line)
+            print(line)
+        else:
+            continue
