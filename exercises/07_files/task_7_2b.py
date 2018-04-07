@@ -14,3 +14,16 @@
 '''
 
 ignore = ['duplex', 'alias', 'Current configuration']
+#преобразуем лист с исключениями
+ignore = " ".join(ignore)
+ignore = ignore.split()
+
+
+file = input('Write name or path for file: ')
+
+with open(file, 'r') as src, open('config_sw1_cleared.txt', 'w') as dest:
+    for line in src:
+        if (set(line.split())).intersection(set(ignore)):
+            continue
+        else:
+            dest.write(line)
