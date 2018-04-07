@@ -55,11 +55,23 @@ def generate_access_config(access):
         'switchport nonegotiate', 'spanning-tree portfast',
         'spanning-tree bpduguard enable'
     ]
+    access_port_config = []
+    for port, vlan in access.items():
+        access_port_config.append('interface ' + port)
+        for line in access_template:
+            if line.startswith('switchport access vlan'):
+                access_port_config.append(line.rstrip() + " " + str(vlan))
+            else:
+                access_port_config.append(line.rstrip())
+
+
+    print(access_port_config)
 
 
 access_dict = {
     'FastEthernet0/12': 10,
     'FastEthernet0/14': 11,
     'FastEthernet0/16': 17,
-    'FastEthernet0/17': 150
-}
+    'FastEthernet0/17': 150}
+
+generate_access_config(access_dict)
