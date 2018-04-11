@@ -21,7 +21,7 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
 
-
+from __future__ import print_function, unicode_literals
 def generate_trunk_config(trunk):
     '''
     trunk - словарь trunk-портов, для которых необходимо сгенерировать конфигурацию
@@ -35,10 +35,11 @@ def generate_trunk_config(trunk):
 
     trunk_port_config = []
     for port, vlan in trunk.items():
+        
         trunk_port_config.append('interface ' + port)
         for line in trunk_template:
             if line.startswith('switchport trunk allowed vlan'):
-                trunk_port_config.append(line.rstrip() + " " + str(vlan))
+                trunk_port_config.append(line.rstrip() + " " + ', '.join(str(v) for v in vlan))
             else:
                 trunk_port_config.append(line.rstrip())
 
