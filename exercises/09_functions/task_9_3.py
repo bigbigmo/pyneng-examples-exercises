@@ -22,16 +22,6 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
 
-"""interface FastEthernet1/1
- switchport mode access
- switchport access vlan 30
- duplex auto
-!
-interface FastEthernet1/2
- switchport trunk encapsulation dot1q
- switchport trunk allowed vlan 400,500
- switchport mode trunk
- duplex auto"""
 
 def get_int_vlan_map(conf):
     trunk_ports = {}
@@ -44,10 +34,19 @@ def get_int_vlan_map(conf):
                 ports.append(line.rstrip())
             elif  line.startswith('!'):
                 pass
-
         for a,b in zip(ports[0::2], ports[1::2]):
             new_ports.append(a+b)
 
+        for port in new_ports:
+            if port.split()[3] == 'access':
+                access_ports.update({port.split()[1]:port.split()[5]})
+            if port.split()[3] == 'trunk':
+                trunk_ports.update({port.split()[1]:(port.split()[6]).split(',')})
+
     print(new_ports)
+    print("trunk_ports: ")
+    print(trunk_ports)
+    print("access_ports: ")
+    print(access_ports)
 
 get_int_vlan_map('config_sw1.txt')
